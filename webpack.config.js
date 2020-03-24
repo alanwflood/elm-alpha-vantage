@@ -21,10 +21,11 @@ module.exports = (env = { production: false }) => {
       plugins: [
         new HtmlWebpackPlugin({
           inject: "body",
-          template: path.resolve(__dirname, "src", "index.html")
+          template: path.resolve(__dirname,  "src", "index.html")
         }),
         new Dotenv({
-          path: path.resolve(__dirname, "..", ".env")
+          path: path.resolve(__dirname, ".env"),
+          safe: true
         })
       ]
     },

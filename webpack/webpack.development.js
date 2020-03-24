@@ -31,7 +31,7 @@ module.exports = {
   },
   plugins: [new webpack.HotModuleReplacementPlugin(), new DashboardPlugin()],
   devServer: {
-    contentBase: "./src",
+    contentBase: path.resolve(__dirname, "../src"),
     historyApiFallback: true,
     inline: true,
     stats: "errors-only",
