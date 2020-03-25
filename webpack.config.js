@@ -16,12 +16,13 @@ module.exports = (env = { production: false }) => {
       mode,
       output: {
         filename: "main.js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "dist"),
+        publicPath: "/"
       },
       plugins: [
         new HtmlWebpackPlugin({
           inject: "body",
-          template: path.resolve(__dirname,  "src", "index.html")
+          template: path.resolve(__dirname, "src", "index.html")
         }),
         new Dotenv({
           path: path.resolve(__dirname, ".env"),

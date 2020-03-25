@@ -2,12 +2,13 @@ module SearchBar exposing (Model, Msg, init, subscriptions, update, view)
 
 import Browser.Events as Events
 import Html exposing (..)
-import Html.Attributes exposing (class, href, style, type_, value)
+import Html.Attributes exposing (class, style, type_, value)
 import Html.Events exposing (..)
 import Http
 import Json.Decode exposing (Decoder, field, list, map, string, succeed)
 import Json.Decode.Extra exposing (parseFloat)
 import Json.Decode.Pipeline exposing (required)
+import Routing exposing (Route(..), href)
 import Url.Builder as Build
 
 
@@ -181,9 +182,7 @@ viewSymbolsList searchSymbols isSearchListOpen =
                     (\s ->
                         li []
                             [ a
-                                [ href <| "/"
-
-                                -- Url.Builder.absolute [ "sym", s.symbol ] []
+                                [ href (Stock s.symbol)
                                 , stopPropagationOn "click" <| succeed ( SetSearchTerm s.name, True )
                                 , class "flex justify-between p-2 hover:bg-grey-lighter no-underline text-grey-dark hover:text-grey-darker"
                                 ]

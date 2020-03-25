@@ -3,6 +3,10 @@ const DashboardPlugin = require("webpack-dashboard/plugin");
 const webpack = require("webpack");
 
 module.exports = {
+  entry: [
+    "webpack-dev-server/client?http://localhost:8080",
+    path.resolve(__dirname, "../src/index.js")
+  ],
   module: {
     rules: [
       {
@@ -13,8 +17,7 @@ module.exports = {
           {
             loader: "elm-webpack-loader",
             options: {
-              cwd: path.resolve(__dirname, ".."),
-              debug: true
+              cwd: path.resolve(__dirname, "..")
             }
           }
         ]
